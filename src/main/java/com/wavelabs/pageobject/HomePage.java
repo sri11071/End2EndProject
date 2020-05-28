@@ -10,41 +10,41 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage extends BasePage {
 
-	WebDriver driver;
-	WebDriverWait wait;
+	 private WebDriver driver;
+		private WebDriverWait wait;
 
-	public HomePage(WebDriver driver, WebDriverWait wait) {
-		super(driver, wait);
+		public HomePage(WebDriver driver, WebDriverWait wait) {
+			super(driver, wait);
 
-	}
-	
-	@FindBy(xpath="//h2[text()='Featured Courses']")
-	WebElement contenttitile;
-	
-	@FindBy(xpath="//a[text()='Contact']")
-	WebElement contact_link;
+		}
 
-	@FindBy(css = "div[class='sumome-react-svg-image-container']")
-	WebElement closepopup;
+		@FindBy(xpath = "//h2[text()='Featured Courses']")
+		private WebElement contenttitile;
 
-	@FindBy(css = "a[href*='sign_in']")
-	WebElement login_link;
+		@FindBy(xpath = "//a[text()='Contact']")
+		private WebElement contact_link;
 
-	public WebElement closepopup() {
-		return closepopup;
-	}
-	
-	public WebElement ContactLink() {
-		return contact_link;
-	}
-	public WebElement getContenttitile() {
-		return contenttitile;
-	}
-	
+		@FindBy(css = "div[class='sumome-react-svg-image-container']")
+		private WebElement closepopup;
 
-	public LoginPage LoginClick() {
-		login_link.click();
-		return new LoginPage(driver, wait);
+		@FindBy(css = "a[href*='sign_in']")
+		private WebElement login_link;
+
+		public WebElement closepopup() {
+			return closepopup;
+		}
+
+		public WebElement ContactLink() {
+			return contact_link;
+		}
+
+		public WebElement getContenttitile() {
+			return contenttitile;
+		}
+
+		public LoginPage LoginClick() {
+			login_link.click();
+			return new LoginPage(driver, wait);
 
 	}
 

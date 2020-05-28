@@ -46,17 +46,18 @@ public class BaseTest {
 			e.printStackTrace();
 		}
 		String browserType = System.getProperty("browser");
-        log.info("exectuion in browser   :"+browserType);
+		// String browserType=pos.getProperty("browser");
+		log.info("exectuion in browser   :" + browserType);
 		if (browserType.equalsIgnoreCase("chrome")) {
-			System.setProperty("webdriver.chrome.driver", "D:\\Selenium\\drivers\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", dir + "\\drivers\\chromedriver.exe");
 			driver = new ChromeDriver();
 
 		} else if (browserType.equalsIgnoreCase("Firefox")) {
-			System.setProperty("webdriver.gecko.driver", "D:\\Selenium\\drivers\\geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", dir + "\\drivers\\geckodriver.exe");
 			driver = new FirefoxDriver();
 
 		} else if (browserType.equalsIgnoreCase("IE")) {
-			System.setProperty("webdriver.ie.driver", "D:\\Selenium\\drivers\\IEDriverServer.exe");
+			System.setProperty("webdriver.ie.driver", dir + "\\drivers\\IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
 		}
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

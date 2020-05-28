@@ -7,8 +7,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends BasePage {
 
-	WebDriverWait wait;
-	WebDriver driver;
+	private WebDriverWait wait;
+	private WebDriver driver;
 
 	public LoginPage(WebDriver driver, WebDriverWait wait) {
 		super(driver, wait);
@@ -16,16 +16,16 @@ public class LoginPage extends BasePage {
 	}
 
 	@FindBy(id = "user_email")
-	WebElement emailId;
+	private WebElement emailId;
 
 	@FindBy(id = "user_password")
-	WebElement Password;
+	private WebElement Password;
 
 	@FindBy(xpath = "//input[@value='Log In']")
-	WebElement LoginButton;
+	private WebElement LoginButton;
 
 	@FindBy(css = "[href*='password/new']")
-	WebElement forgotPassword;
+	private WebElement forgotPassword;
 
 	public WebElement getLoginButton() {
 		return LoginButton;
@@ -41,7 +41,7 @@ public class LoginPage extends BasePage {
 
 	public ForgotPassword forgotPassword() {
 		forgotPassword.click();
-		return new ForgotPassword(driver);
+		return new ForgotPassword(driver, wait);
 
 	}
 
