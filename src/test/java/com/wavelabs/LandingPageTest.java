@@ -23,10 +23,12 @@ import com.wavelabs.pageobject.LoginPage;
 
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LandingPageTest extends BaseTest {
 	public static Logger log = org.apache.logging.log4j.LogManager.getLogger(LandingPageTest.class.getName());
 	public WebDriver driver;
+	WebDriverWait wait;
 
 	@BeforeMethod
 	public void initi() {
@@ -44,7 +46,7 @@ public class LandingPageTest extends BaseTest {
 		String URL = pos.getProperty("url");
 		driver.get(URL);
 		HomePage hp = new HomePage(driver, wait);
-		LoginPage lp=hp.LoginClick();
+		LoginPage lp = hp.LoginClick();
 		lp.getEmailId().sendKeys(email);
 		lp.getPassword().sendKeys(password);
 		lp.getLoginButton().click();

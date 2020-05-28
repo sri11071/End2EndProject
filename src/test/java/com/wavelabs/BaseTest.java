@@ -46,8 +46,8 @@ public class BaseTest {
 
 			e.printStackTrace();
 		}
-		String browserType = System.getProperty("browser");
-		// String browserType=pos.getProperty("browser");
+		//String browserType = System.getProperty("browser");
+		String browserType=pos.getProperty("browser");
 		log.info("exectuion in browser   :" + browserType);
 		if (browserType.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver", driverpath + "\\chromedriver.exe");

@@ -30,7 +30,7 @@ public class ValidateContentTest extends BaseTest {
 		HomePage hp = new HomePage(driver, wait);
 		Assert.assertEquals(hp.ContactLink().isDisplayed(), true);
 		log.info("Element is displyed");
-		Assert.assertEquals(hp.getContenttitile().getText(), "FEatured Courses");
+		Assert.assertEquals(hp.getContenttitile().getText(), "FEATURED COURSES");
 		log.info("Comparing context ... ");
 		hp.ContactLink().click();
 

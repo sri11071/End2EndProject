@@ -7,9 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ForgotPassword extends BasePage {
 
-	private WebElement driver;
-	private WebDriverWait wait;
-
+	
 	public ForgotPassword(WebDriver driver, WebDriverWait wait) {
 		super(driver, wait);
 	}

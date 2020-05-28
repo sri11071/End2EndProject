@@ -7,9 +7,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends BasePage {
 
-	private WebDriverWait wait;
-	private WebDriver driver;
-
 	public LoginPage(WebDriver driver, WebDriverWait wait) {
 		super(driver, wait);
 
