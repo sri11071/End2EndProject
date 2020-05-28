@@ -15,28 +15,34 @@ public class Listernes extends BaseTest implements ITestListener {
 	ExtentReports extentedReportsNG = ExtentedReportsNG.getExtentReports();
 	ExtentTest test;
 
+	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
+
 	public void onTestStart(ITestResult result) {
-		test = extentedReportsNG.createTest( result.getMethod().getMethodName());
+		test = extentedReportsNG.createTest(result.getMethod().getMethodName());
+		extentTest.set(test);
 	}
 
 	public void onTestSuccess(ITestResult result) {
-		test.log(Status.PASS, "Test is passed");
+		extentTest.get().log(Status.PASS, "Test is passed");
 	}
 
 	public void onTestFailure(ITestResult result) {
-		test.log(Status.FAIL, result.getThrowable());
-		test.fail(result.getThrowable());
+		extentTest.get().log(Status.FAIL, result.getThrowable());
+		extentTest.get().fail(result.getThrowable());
+
 		WebDriver driver = null;
 		String testcaseName = result.getMethod().getMethodName();
 
 		try {
 			driver = (WebDriver) result.getTestClass().getRealClass().getDeclaredField("driver")
 					.get(result.getInstance());
+			String imagePath = getScreenShot(testcaseName, driver);
+			extentTest.get().addScreenCaptureFromPath(imagePath, testcaseName);
 		} catch (Exception e) {
 
 			e.printStackTrace();
 		}
-		getScreenShot(testcaseName, driver);
+
 	}
 
 	public void onTestSkipped(ITestResult result) {

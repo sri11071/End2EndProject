@@ -64,7 +64,7 @@ public class BaseTest {
 		return driver;
 	}
 
-	public void getScreenShot(String testcaseName, WebDriver driver) {
+	public String  getScreenShot(String testcaseName, WebDriver driver) {
 
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
@@ -76,6 +76,8 @@ public class BaseTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		return screenshotfile;
 
 	}
 
