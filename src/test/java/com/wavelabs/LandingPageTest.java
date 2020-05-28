@@ -9,6 +9,8 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -20,9 +22,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LandingPageTest extends BaseTest {
 
+	@BeforeTest
+	public void init() {
+		driver = initializeDriver();
+
+	}
+
 	@Test(dataProvider = "getData")
 	public void loginUser(String email, String password) {
-		driver = initializeDriver();
+
 		String URL = pos.getProperty("url");
 		driver.get(URL);
 		HomePage hp = new HomePage(driver, wait);
@@ -41,7 +49,7 @@ public class LandingPageTest extends BaseTest {
 		String projectPath = System.getProperty("user.dir") + File.separator;
 		String filePath = projectPath + "src" + File.separator + "main" + File.separator + "resources" + File.separator
 				+ "data" + File.separator;
-		FileInputStream fis = new FileInputStream(projectPath+filePath);
+		FileInputStream fis = new FileInputStream(projectPath + filePath);
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 		XSSFSheet mySheet = workbook.getSheet("logindetails");
 		log.info(mySheet.getSheetName());
@@ -64,6 +72,11 @@ public class LandingPageTest extends BaseTest {
 		workbook.close();
 		return data;
 
+	}
+
+	@AfterTest
+	public void tearDown() {
+		driver.close();
 	}
 
 }

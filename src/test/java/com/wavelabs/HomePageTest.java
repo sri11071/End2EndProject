@@ -9,6 +9,8 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -19,16 +21,27 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePageTest extends BaseTest {
+	
+	@BeforeTest
+	public void init() {
+		driver = initializeDriver();
+		
+	}
 
 	@Test()
 	public void loginUser() {
-		driver = initializeDriver();
+		
 		String URL = pos.getProperty("url");
 		driver.get(URL);
 		HomePage hp = new HomePage(driver, wait);
 		Assert.assertEquals(hp.ContactLink().isDisplayed(), true);
 		hp.ContactLink().click();
 
+	}
+	
+	@AfterTest
+	public void tearDown() {
+		driver.close();
 	}
 
 	
