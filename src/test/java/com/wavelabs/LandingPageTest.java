@@ -5,9 +5,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -23,6 +25,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LandingPageTest extends BaseTest {
+	public static Logger log = org.apache.logging.log4j.LogManager.getLogger(LandingPageTest.class.getName());
+	public WebDriver driver;
 
 	@BeforeMethod
 	public void initi() {

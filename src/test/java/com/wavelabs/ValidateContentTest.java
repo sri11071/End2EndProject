@@ -9,9 +9,9 @@ import org.testng.annotations.Test;
 
 import com.wavelabs.pageobject.HomePage;
 
-public class HomePageTest extends BaseTest {
+public class ValidateContentTest extends BaseTest {
 
-	public static Logger log = org.apache.logging.log4j.LogManager.getLogger(HomePageTest.class.getName());
+	public static Logger log = org.apache.logging.log4j.LogManager.getLogger(ValidateContentTest.class.getName());
 	public WebDriver driver;
 	@BeforeMethod
 	public void initi() {
@@ -30,6 +30,8 @@ public class HomePageTest extends BaseTest {
 		HomePage hp = new HomePage(driver, wait);
 		Assert.assertEquals(hp.ContactLink().isDisplayed(), true);
 		log.info("Element is displyed");
+		Assert.assertEquals(hp.getContenttitile().getText(), "FEatured Courses");
+		log.info("Comparing context ... ");
 		hp.ContactLink().click();
 
 	}

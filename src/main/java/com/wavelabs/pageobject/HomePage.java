@@ -18,6 +18,10 @@ public class HomePage extends BasePage {
 
 	}
 	
+	
+	@FindBy(xpath="//h2[text()='Featured Courses']")
+	WebElement contenttitile;
+	
 	@FindBy(xpath="//a[text()='Contact']")
 	WebElement contact_link;
 
@@ -34,6 +38,10 @@ public class HomePage extends BasePage {
 	public WebElement ContactLink() {
 		return contact_link;
 	}
+	public WebElement getContenttitile() {
+		return contenttitile;
+	}
+	
 
 	public void LoginClick() {
 		login_link.click();

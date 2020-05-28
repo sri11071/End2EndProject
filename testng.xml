@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<suite name="Suite" parallel="tests">
+	<listeners>
+		<listener class-name="com.wavelabs.testnglisterns.Listernes"></listener>
+	</listeners>
+	<test name="Test">
+		<classes>
+			<class name="com.wavelabs.HomePageTest" />
+			<class name="com.wavelabs.LandingPageTest" />
 
-  <test name="Test">
-    <classes>
-      <class name="com.wavelabs.HomePageTest"/>
-      <class name="com.wavelabs.LandingPageTest"/>
-      
-    </classes>
-  </test> 
-  
-   
+		</classes>
+	</test>
+
+	<test name="validate">
+		<classes>
+			<class name="com.wavelabs.ValidateContentTest" />
+
+		</classes>
+	</test>
+
+
 </suite> <!-- Suite -->

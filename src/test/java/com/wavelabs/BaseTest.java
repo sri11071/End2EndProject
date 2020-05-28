@@ -1,12 +1,17 @@
 package com.wavelabs;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.LogManager;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,6 +21,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.utils.FileUtil;
+
 public class BaseTest {
 
 	WebDriverWait wait;
@@ -24,7 +31,6 @@ public class BaseTest {
 
 	public static Logger log = org.apache.logging.log4j.LogManager.getLogger(BaseTest.class.getName());
 
-	
 	public WebDriver initializeDriver() {
 
 		String dir = System.getProperty("user.dir");
@@ -54,8 +60,22 @@ public class BaseTest {
 			driver = new InternetExplorerDriver();
 		}
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
+		log.info("Driver is started");
 		return driver;
+	}
+
+	public void getScreenShot(String testcaseName, WebDriver driver) {
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		String screenshotfile = System.getProperty("user.dir") + File.separator + "reports" +File.separator + testcaseName + ".png";
+		log.info("Failed Screenshot file:"+screenshotfile);
+		try {
+			FileUtils.copyFile(source, new File(screenshotfile));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }
