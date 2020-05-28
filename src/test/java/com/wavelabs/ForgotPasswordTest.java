@@ -26,7 +26,7 @@ public class ForgotPasswordTest extends BaseTest {
 	}
 
 	@Test()
-	public void loginUser(String email) {
+	public void forGotPassword() {
 
 		String URL = pos.getProperty("url");
 		driver.get(URL);

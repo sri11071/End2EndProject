@@ -45,8 +45,8 @@ public class BaseTest {
 
 			e.printStackTrace();
 		}
-		String browserType = pos.getProperty("browser");
-
+		String browserType = System.getProperty("browser");
+        log.info("exectuion in browser   :"+browserType);
 		if (browserType.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver", "D:\\Selenium\\drivers\\chromedriver.exe");
 			driver = new ChromeDriver();
@@ -64,7 +64,7 @@ public class BaseTest {
 		return driver;
 	}
 
-	public String  getScreenShot(String testcaseName, WebDriver driver) {
+	public String getScreenShot(String testcaseName, WebDriver driver) {
 
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
@@ -76,7 +76,7 @@ public class BaseTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		return screenshotfile;
 
 	}
