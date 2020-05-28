@@ -15,6 +15,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.FindBy;
@@ -46,8 +47,8 @@ public class BaseTest {
 
 			e.printStackTrace();
 		}
-		//String browserType = System.getProperty("browser");
-		String browserType=pos.getProperty("browser");
+		String browserType = System.getProperty("browser");
+		// String browserType=pos.getProperty("browser");
 		log.info("exectuion in browser   :" + browserType);
 		if (browserType.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver", driverpath + "\\chromedriver.exe");

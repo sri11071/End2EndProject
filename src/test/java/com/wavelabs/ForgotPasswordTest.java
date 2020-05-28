@@ -13,7 +13,7 @@ import com.wavelabs.pageobject.LoginPage;
 public class ForgotPasswordTest extends BaseTest {
 
 	public static Logger log = org.apache.logging.log4j.LogManager.getLogger(ForgotPasswordTest.class.getName());
-	
+	WebDriver driver;
 
 	@BeforeMethod
 	public void initi() {

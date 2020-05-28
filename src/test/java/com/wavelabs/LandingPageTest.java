@@ -27,9 +27,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LandingPageTest extends BaseTest {
 	public static Logger log = org.apache.logging.log4j.LogManager.getLogger(LandingPageTest.class.getName());
-	public WebDriver driver;
-	WebDriverWait wait;
-
+	 WebDriver driver;
 	@BeforeMethod
 	public void initi() {
 		driver = initializeDriver();
