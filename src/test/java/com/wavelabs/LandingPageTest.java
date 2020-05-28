@@ -9,7 +9,9 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -21,20 +23,20 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LandingPageTest extends BaseTest {
-	
-	@BeforeTest
+
+	@BeforeMethod
 	public void initi() {
 		driver = initializeDriver();
 	}
-	
-	@AfterTest
+
+	@AfterMethod
 	public void tearDown() {
 		driver.close();
 	}
 
 	@Test(dataProvider = "getData")
 	public void loginUser(String email, String password) {
-		
+
 		String URL = pos.getProperty("url");
 		driver.get(URL);
 		HomePage hp = new HomePage(driver, wait);
@@ -44,9 +46,8 @@ public class LandingPageTest extends BaseTest {
 		lp.getPassword().sendKeys(password);
 		lp.getLoginButton().click();
 
+		log.info(driver.getCurrentUrl());
 	}
-	
-
 
 	@DataProvider
 	public Object[][] getData() throws IOException {
