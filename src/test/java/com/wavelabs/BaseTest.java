@@ -24,7 +24,7 @@ public class BaseTest {
 
 	public static Logger log = org.apache.logging.log4j.LogManager.getLogger(BaseTest.class.getName());
 
-	@Test
+	
 	public WebDriver initializeDriver() {
 
 		String dir = System.getProperty("user.dir");

@@ -30,7 +30,6 @@ public class LandingPageTest extends BaseTest {
 
 	@Test(dataProvider = "getData")
 	public void loginUser(String email, String password) {
-
 		String URL = pos.getProperty("url");
 		driver.get(URL);
 		HomePage hp = new HomePage(driver, wait);
