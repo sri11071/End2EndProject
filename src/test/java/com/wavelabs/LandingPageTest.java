@@ -49,7 +49,8 @@ public class LandingPageTest extends BaseTest {
 		String projectPath = System.getProperty("user.dir") + File.separator;
 		String filePath = projectPath + "src" + File.separator + "main" + File.separator + "resources" + File.separator
 				+ "data" + File.separator;
-		FileInputStream fis = new FileInputStream(projectPath + filePath);
+		String fileName = "DataDrivenDemo.xlsx";
+		FileInputStream fis = new FileInputStream(filePath + fileName);
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 		XSSFSheet mySheet = workbook.getSheet("logindetails");
 		log.info(mySheet.getSheetName());
