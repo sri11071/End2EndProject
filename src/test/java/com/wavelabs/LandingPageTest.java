@@ -1,5 +1,6 @@
 package com.wavelabs;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -37,11 +38,14 @@ public class LandingPageTest extends BaseTest {
 	public Object[][] getData() throws IOException {
 		// fileInputStream argument
 
-		FileInputStream fis = new FileInputStream("C://Users//vnalla//Desktop//DataDrivenDemo.xlsx");
+		String projectPath = System.getProperty("user.dir") + File.separator;
+		String filePath = projectPath + "src" + File.separator + "main" + File.separator + "resources" + File.separator
+				+ "data" + File.separator;
+		FileInputStream fis = new FileInputStream(projectPath+filePath);
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 		XSSFSheet mySheet = workbook.getSheet("logindetails");
 		log.info(mySheet.getSheetName());
-		int rowCount = mySheet.getLastRowNum()+1;
+		int rowCount = mySheet.getLastRowNum() + 1;
 		log.debug("Row count is :" + rowCount);
 		XSSFRow row = mySheet.getRow(0);
 		int colCount = row.getLastCellNum();
@@ -52,8 +56,8 @@ public class LandingPageTest extends BaseTest {
 		for (int i = 0; i < rowCount; i++) {
 			for (int j = 0; j < colCount; j++) {
 				data[i][j] = mySheet.getRow(i).getCell(j).getStringCellValue();
-				log.info("Row details  "+i +" column details J:"+j);
-				log.info(mySheet.getRow(i).getCell(j).getStringCellValue() + "\t");	
+				log.info("Row details  " + i + " column details J:" + j);
+				log.info(mySheet.getRow(i).getCell(j).getStringCellValue() + "\t");
 
 			}
 		}
