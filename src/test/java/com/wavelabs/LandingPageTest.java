@@ -47,7 +47,7 @@ public class LandingPageTest extends BaseTest {
 		// fileInputStream argument
 
 		String projectPath = System.getProperty("user.dir") + File.separator;
-		String filePath = projectPath + "src" + File.separator + "main" + File.separator + "resources" + File.separator
+		String filePath = projectPath + "src" + File.separator + "test" + File.separator + "resources" + File.separator
 				+ "data" + File.separator;
 		String fileName = "DataDrivenDemo.xlsx";
 		FileInputStream fis = new FileInputStream(filePath + fileName);
