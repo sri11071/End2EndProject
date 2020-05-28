@@ -17,13 +17,16 @@ public class LoginPage extends BasePage {
 
 	@FindBy(id = "user_email")
 	WebElement emailId;
-	
+
 	@FindBy(id = "user_password")
 	WebElement Password;
-	
-	@FindBy(xpath="//input[@value='Log In']")
+
+	@FindBy(xpath = "//input[@value='Log In']")
 	WebElement LoginButton;
-	
+
+	@FindBy(css = "[href*='password/new']")
+	WebElement forgotPassword;
+
 	public WebElement getLoginButton() {
 		return LoginButton;
 	}
@@ -35,7 +38,11 @@ public class LoginPage extends BasePage {
 	public WebElement getPassword() {
 		return Password;
 	}
-	
-	
+
+	public ForgotPassword forgotPassword() {
+		forgotPassword.click();
+		return new ForgotPassword(driver);
+
+	}
 
 }

@@ -44,8 +44,7 @@ public class LandingPageTest extends BaseTest {
 		String URL = pos.getProperty("url");
 		driver.get(URL);
 		HomePage hp = new HomePage(driver, wait);
-		hp.LoginClick();
-		LoginPage lp = new LoginPage(driver, wait);
+		LoginPage lp=hp.LoginClick();
 		lp.getEmailId().sendKeys(email);
 		lp.getPassword().sendKeys(password);
 		lp.getLoginButton().click();

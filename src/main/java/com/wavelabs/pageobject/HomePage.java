@@ -18,7 +18,6 @@ public class HomePage extends BasePage {
 
 	}
 	
-	
 	@FindBy(xpath="//h2[text()='Featured Courses']")
 	WebElement contenttitile;
 	
@@ -43,8 +42,9 @@ public class HomePage extends BasePage {
 	}
 	
 
-	public void LoginClick() {
+	public LoginPage LoginClick() {
 		login_link.click();
+		return new LoginPage(driver, wait);
 
 	}
 
