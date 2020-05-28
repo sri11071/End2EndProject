@@ -35,6 +35,7 @@ public class BaseTest {
 
 		String dir = System.getProperty("user.dir");
 		String datafile = dir + "\\src\\test\\resources\\data.properties";
+		String driverpath=dir+"\\src\\test\\resources\\drivers";
 		log.info(datafile);
 		FileInputStream fis;
 		try {
@@ -49,15 +50,15 @@ public class BaseTest {
 		// String browserType=pos.getProperty("browser");
 		log.info("exectuion in browser   :" + browserType);
 		if (browserType.equalsIgnoreCase("chrome")) {
-			System.setProperty("webdriver.chrome.driver", dir + "\\drivers\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", driverpath+"\\chromedriver.exe");
 			driver = new ChromeDriver();
 
 		} else if (browserType.equalsIgnoreCase("Firefox")) {
-			System.setProperty("webdriver.gecko.driver", dir + "\\drivers\\geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", driverpath+"\\geckodriver.exe");
 			driver = new FirefoxDriver();
 
 		} else if (browserType.equalsIgnoreCase("IE")) {
-			System.setProperty("webdriver.ie.driver", dir + "\\drivers\\IEDriverServer.exe");
+			System.setProperty("webdriver.ie.driver", driverpath+"\\IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
 		}
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
