@@ -21,16 +21,19 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePageTest extends BaseTest {
-	
-	@BeforeTest
-	public void init() {
-		driver = initializeDriver();
-		
-	}
 
+	@BeforeTest
+	public void initi() {
+		driver = initializeDriver();
+	}
+	
+	@AfterTest
+	public void tearDown() {
+		driver.close();
+	}
+	
 	@Test()
 	public void loginUser() {
-		
 		String URL = pos.getProperty("url");
 		driver.get(URL);
 		HomePage hp = new HomePage(driver, wait);
@@ -38,12 +41,5 @@ public class HomePageTest extends BaseTest {
 		hp.ContactLink().click();
 
 	}
-	
-	@AfterTest
-	public void tearDown() {
-		driver.close();
-	}
-
-	
 
 }

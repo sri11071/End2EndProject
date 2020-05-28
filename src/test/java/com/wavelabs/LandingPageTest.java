@@ -21,15 +21,20 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LandingPageTest extends BaseTest {
-
+	
 	@BeforeTest
-	public void init() {
+	public void initi() {
 		driver = initializeDriver();
-
+	}
+	
+	@AfterTest
+	public void tearDown() {
+		driver.close();
 	}
 
 	@Test(dataProvider = "getData")
 	public void loginUser(String email, String password) {
+		
 		String URL = pos.getProperty("url");
 		driver.get(URL);
 		HomePage hp = new HomePage(driver, wait);
@@ -40,6 +45,8 @@ public class LandingPageTest extends BaseTest {
 		lp.getLoginButton().click();
 
 	}
+	
+
 
 	@DataProvider
 	public Object[][] getData() throws IOException {
@@ -72,11 +79,6 @@ public class LandingPageTest extends BaseTest {
 		workbook.close();
 		return data;
 
-	}
-
-	@AfterTest
-	public void tearDown() {
-		driver.close();
 	}
 
 }
