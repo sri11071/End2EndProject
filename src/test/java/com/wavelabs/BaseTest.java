@@ -68,8 +68,9 @@ public class BaseTest {
 
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
-		String screenshotfile = System.getProperty("user.dir") + File.separator + "reports" +File.separator + testcaseName + ".png";
-		log.info("Failed Screenshot file:"+screenshotfile);
+		String screenshotfile = System.getProperty("user.dir") + File.separator + "reports" + File.separator
+				+ testcaseName + ".png";
+		log.info("Failed Screenshot file:" + screenshotfile);
 		try {
 			FileUtils.copyFile(source, new File(screenshotfile));
 		} catch (IOException e) {

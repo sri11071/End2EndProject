@@ -24,7 +24,7 @@ public class HomePageTest extends BaseTest {
 	}
 	
 	@Test()
-	public void loginUser() {
+	public void homepageVerification() {
 		String URL = pos.getProperty("url");
 		driver.get(URL);
 		HomePage hp = new HomePage(driver, wait);

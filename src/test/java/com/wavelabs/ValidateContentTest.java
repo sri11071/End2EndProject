@@ -24,7 +24,7 @@ public class ValidateContentTest extends BaseTest {
 	}
 	
 	@Test()
-	public void loginUser() {
+	public void validatecontent() {
 		String URL = pos.getProperty("url");
 		driver.get(URL);
 		HomePage hp = new HomePage(driver, wait);

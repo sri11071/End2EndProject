@@ -5,20 +5,27 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.wavelabs.BaseTest;
 
 public class Listernes extends BaseTest implements ITestListener {
 
+	ExtentReports extentedReportsNG = ExtentedReportsNG.getExtentReports();
+	ExtentTest test;
+
 	public void onTestStart(ITestResult result) {
-		// TODO Auto-generated method stub
+		test = extentedReportsNG.createTest( result.getMethod().getMethodName());
 	}
 
 	public void onTestSuccess(ITestResult result) {
-		// TODO Auto-generated method stub
+		test.log(Status.PASS, "Test is passed");
 	}
 
 	public void onTestFailure(ITestResult result) {
-
+		test.log(Status.FAIL, result.getThrowable());
+		test.fail(result.getThrowable());
 		WebDriver driver = null;
 		String testcaseName = result.getMethod().getMethodName();
 
@@ -45,11 +52,11 @@ public class Listernes extends BaseTest implements ITestListener {
 	}
 
 	public void onStart(ITestContext context) {
-		// TODO Auto-generated method stub
+
 	}
 
 	public void onFinish(ITestContext context) {
-		// TODO Auto-generated method stub
+		extentedReportsNG.flush();
 	}
 
 }
