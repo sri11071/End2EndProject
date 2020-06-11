@@ -36,7 +36,7 @@ public class HomePage extends BasePage {
 		return closepopup;
 	}
 
-	public List<WebElement> getPopUpSize() {
+	public List<WebElement> getPopUpElements() {
 		return driver.findElements(By.xpath("//button[text()='NO THANKS']"));
 	}
 

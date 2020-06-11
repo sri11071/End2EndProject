@@ -16,7 +16,13 @@
 		<classes>
 			<class name="com.wavelabs.ValidateContentTest" />
 			<class name="com.wavelabs.ForgotPasswordTest" />
-			
+
+
+		</classes>
+	</test>
+	<test name="cucumber">
+		<classes>
+			<class name="cucumberoptions.TestRunner" />
 
 		</classes>
 	</test>
