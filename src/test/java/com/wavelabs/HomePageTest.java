@@ -31,6 +31,9 @@ public class HomePageTest extends BaseTest {
 		HomePage hp = new HomePage(driver, wait);
 		Assert.assertEquals(hp.ContactLink().isDisplayed(), true);
 		log.info("Element is displyed");
+		if(hp.getPopUpSize().size()>0) {
+			hp.getPopUp().click();
+		}
 		hp.ContactLink().click();
 
 	}

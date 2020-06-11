@@ -26,8 +26,8 @@ import com.aventstack.extentreports.utils.FileUtil;
 
 public class BaseTest {
 
-	WebDriverWait wait;
-	WebDriver driver;
+	public WebDriverWait wait;
+	public WebDriver driver;
 	Properties pos = new Properties();
 
 	public static Logger log = org.apache.logging.log4j.LogManager.getLogger(BaseTest.class.getName());
