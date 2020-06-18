@@ -33,10 +33,12 @@
 						</suiteXmlFiles>
 					</configuration>
 				</plugin>
+
 			</plugins>
 		</pluginManagement>
-	</build>
 
+
+	</build>
 
 	<dependencies>
 		<dependency>
@@ -134,7 +136,32 @@
 			<version>4.12</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.9.5</version>
+		</dependency>
 
+
+		<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-testng</artifactId>
+			<version>2.13.3</version>
+		</dependency>
 	</dependencies>
+
+	<reporting>
+		<excludeDefaults>true</excludeDefaults>
+		<plugins>
+			<plugin>
+				<groupId>io.qameta.allure</groupId>
+				<artifactId>allure-maven</artifactId>
+				<version>2.9</version>
+			</plugin>
+		</plugins>
+	</reporting>
+
 
 </project>
